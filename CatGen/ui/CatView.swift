@@ -23,10 +23,16 @@ public class CatView: UIView {
         
         let catLayer = CAShapeLayer()
         
-        let startAngle: CGFloat = 0
-        let endAngle: CGFloat = 2 * CGFloat.pi
+        let π = CGFloat.pi
+        let topStartAngle: CGFloat = 4 * π / 3
+        let topEndAngle: CGFloat = 5 * π / 3
+        // 4pi/3 to 5pi/3
+        let path = UIBezierPath(arcCenter: centre, radius: radius, startAngle: topStartAngle, endAngle: topEndAngle, clockwise: true)
+        // 11pi/6 to 19pi/6
+        let bottomStartAngle: CGFloat = 11 * π / 6
+        let bottomEndAngle: CGFloat = 19 * π / 6
+        path.addArc(withCenter: centre, radius: radius, startAngle: bottomStartAngle, endAngle: bottomEndAngle, clockwise: true)
         
-        let path = UIBezierPath(arcCenter: centre, radius: radius, startAngle: startAngle, endAngle: endAngle, clockwise: true)
         catLayer.position = center
         catLayer.path = path.cgPath
         catLayer.lineWidth = 2.0
