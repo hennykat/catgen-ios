@@ -8,10 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		B4108266203F0CB30047200C /* CatGen.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B410825C203F0CB30047200C /* CatGen.framework */; };
-		B410826B203F0CB30047200C /* CatGenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B410826A203F0CB30047200C /* CatGenTests.swift */; };
 		B410826D203F0CB30047200C /* CatGen.h in Headers */ = {isa = PBXBuildFile; fileRef = B410825F203F0CB30047200C /* CatGen.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B4A29F09203F1BB300CB4F6E /* CatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A29F08203F1BB300CB4F6E /* CatView.swift */; };
 		B4A29F0B203F1BCA00CB4F6E /* CatUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A29F0A203F1BCA00CB4F6E /* CatUtil.swift */; };
+		B4E8A2A3203F41E6001879A3 /* CatUtilTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E8A2A2203F41E6001879A3 /* CatUtilTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,10 +29,10 @@
 		B410825F203F0CB30047200C /* CatGen.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CatGen.h; sourceTree = "<group>"; };
 		B4108260203F0CB30047200C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B4108265203F0CB30047200C /* CatGenTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CatGenTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		B410826A203F0CB30047200C /* CatGenTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatGenTests.swift; sourceTree = "<group>"; };
 		B410826C203F0CB30047200C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B4A29F08203F1BB300CB4F6E /* CatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatView.swift; sourceTree = "<group>"; };
 		B4A29F0A203F1BCA00CB4F6E /* CatUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatUtil.swift; sourceTree = "<group>"; };
+		B4E8A2A2203F41E6001879A3 /* CatUtilTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatUtilTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,7 +86,7 @@
 		B4108269203F0CB30047200C /* CatGenTests */ = {
 			isa = PBXGroup;
 			children = (
-				B410826A203F0CB30047200C /* CatGenTests.swift */,
+				B4E8A2A1203F4140001879A3 /* util */,
 				B410826C203F0CB30047200C /* Info.plist */,
 			);
 			path = CatGenTests;
@@ -106,6 +106,14 @@
 				B4A29F08203F1BB300CB4F6E /* CatView.swift */,
 			);
 			path = ui;
+			sourceTree = "<group>";
+		};
+		B4E8A2A1203F4140001879A3 /* util */ = {
+			isa = PBXGroup;
+			children = (
+				B4E8A2A2203F41E6001879A3 /* CatUtilTest.swift */,
+			);
+			path = util;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -175,6 +183,7 @@
 					};
 					B4108264203F0CB30047200C = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -228,7 +237,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B410826B203F0CB30047200C /* CatGenTests.swift in Sources */,
+				B4E8A2A3203F41E6001879A3 /* CatUtilTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -405,12 +414,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = V68M7C59W8;
 				INFOPLIST_FILE = CatGenTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hennykat.CatGenTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -420,6 +431,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = V68M7C59W8;
 				INFOPLIST_FILE = CatGenTests/Info.plist;
