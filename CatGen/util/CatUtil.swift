@@ -18,4 +18,12 @@ class CatUtil {
         let minSide = min(rect.width, rect.height)
         return minSide / 2
     }
+    
+    static func calcEarPoint(x: CGFloat, y: CGFloat, radius: CGFloat, angle: CGFloat) -> CGPoint {
+        
+        let earX = x + radius * cos(angle)
+        let earY = y + radius * sin(angle)
+        
+        return CGPoint(x: earX, y: earY)
+    }
 }
