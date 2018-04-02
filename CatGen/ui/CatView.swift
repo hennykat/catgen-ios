@@ -5,14 +5,18 @@ public class CatView: UIView {
     
     var radius: CGFloat = 0
     var centre = CGPoint(x: 0, y: 0)
+    var strokeColour = UIColor.black.cgColor
+    var fillColour = UIColor.clear.cgColor
     
     // MARK: UIView
     
-    public override init(frame: CGRect) {
+    public init(frame: CGRect, strokeColour: CGColor, fillColour: CGColor = UIColor.clear.cgColor) {
         super.init(frame: frame)
         
-        radius = CatUtil.findRadius(rect: frame)
-        centre = CatUtil.findCentre(rect: frame)
+        self.radius = CatUtil.findRadius(rect: frame)
+        self.centre = CatUtil.findCentre(rect: frame)
+        self.strokeColour = strokeColour
+        self.fillColour = fillColour
     }
     
     public required init?(coder aDecoder: NSCoder) {
@@ -44,8 +48,8 @@ public class CatView: UIView {
         let catLayer = CAShapeLayer()
         catLayer.path = path.cgPath
         catLayer.lineWidth = 4.0
-        catLayer.strokeColor = UIColor.black.cgColor
-        catLayer.fillColor = UIColor.clear.cgColor
+        catLayer.strokeColor = strokeColour
+        catLayer.fillColor = fillColour
         
         self.layer.addSublayer(catLayer)
 
