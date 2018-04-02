@@ -35,15 +35,17 @@ public class CatView: UIView {
         // right ear
         let rightEarAngle = 7 * π / 4
         path.addLine(to: CatUtil.calcEarPoint(x: centre.x, y: centre.y, radius: radius, angle: rightEarAngle))
-        // rest of hear
+        // rest of head
         let bottomStartAngle: CGFloat = 23 * π / 12
         let bottomEndAngle: CGFloat = 13 * π / 12
         path.addArc(withCenter: centre, radius: innerRadius, startAngle: bottomStartAngle, endAngle: bottomEndAngle, clockwise: true)
         // left ear
         let leftEarAngle = 13 * π / 4
         path.addLine(to: CatUtil.calcEarPoint(x: centre.x, y: centre.y, radius: radius, angle: leftEarAngle))
-        // finish
         path.addLine(to: CatUtil.calcEarPoint(x: centre.x, y: centre.y, radius: innerRadius, angle: topStartAngle))
+        // complete line
+        let midAngle: CGFloat = 3 * π / 2
+        path.addArc(withCenter: centre, radius: innerRadius, startAngle: topStartAngle, endAngle: midAngle, clockwise: true)
         
         let catLayer = CAShapeLayer()
         catLayer.path = path.cgPath
