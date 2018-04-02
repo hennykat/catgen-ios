@@ -18,6 +18,7 @@ public class CatView: UIView {
         self.centre = CatUtil.findCentre(rect: frame)
         self.strokeColour = strokeColour
         self.fillColour = fillColour
+        self.lineWidth = lineWidth
     }
     
     public required init?(coder aDecoder: NSCoder) {
