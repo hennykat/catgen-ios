@@ -7,10 +7,11 @@ public class CatView: UIView {
     var centre = CGPoint(x: 0, y: 0)
     var strokeColour = UIColor.black.cgColor
     var fillColour = UIColor.clear.cgColor
+    var lineWidth: CGFloat = 4.0
     
     // MARK: UIView
     
-    public init(frame: CGRect, strokeColour: CGColor, fillColour: CGColor = UIColor.clear.cgColor) {
+    public init(frame: CGRect, strokeColour: CGColor, fillColour: CGColor = UIColor.clear.cgColor, lineWidth: CGFloat = 4.0) {
         super.init(frame: frame)
         
         self.radius = CatUtil.findRadius(rect: frame)
@@ -23,7 +24,7 @@ public class CatView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    public func generate() {
+    public func generate(duration: CFTimeInterval = 1.6) {
         
         let π = CGFloat.pi
         let innerRadius = radius * 2 / 3
@@ -49,17 +50,17 @@ public class CatView: UIView {
         
         let catLayer = CAShapeLayer()
         catLayer.path = path.cgPath
-        catLayer.lineWidth = 4.0
+        catLayer.lineWidth = lineWidth
         catLayer.strokeColor = strokeColour
         catLayer.fillColor = fillColour
         
         self.layer.addSublayer(catLayer)
 
         // animate drawing
-        addAnimation(layer: catLayer)
+        addAnimation(layer: catLayer, duration: duration)
     }
 
-    private func addAnimation(layer: CAShapeLayer) {
+    private func addAnimation(layer: CAShapeLayer, duration: CFTimeInterval) {
 
         layer.strokeStart = 0.0
         // don't draw yet
@@ -69,7 +70,7 @@ public class CatView: UIView {
         let drawAnimation: CABasicAnimation = CABasicAnimation(keyPath: "strokeEnd")
         drawAnimation.fromValue = 0.0
         drawAnimation.toValue = 1.0
-        drawAnimation.duration = 1.6
+        drawAnimation.duration = duration
         drawAnimation.fillMode = kCAFillModeForwards
         drawAnimation.isRemovedOnCompletion = false
         layer.add(drawAnimation, forKey: nil)
