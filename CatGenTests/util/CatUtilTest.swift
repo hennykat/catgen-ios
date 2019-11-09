@@ -2,15 +2,7 @@ import XCTest
 @testable import CatGen
 
 class CatUtilTest: XCTestCase {
-    
-    override func setUp() {
-        super.setUp()
-    }
-    
-    override func tearDown() {
-        super.tearDown()
-    }
-    
+
     func test1FindCentre() {
         let result = CatUtil.findCentre(rect: CGRect(x: 0, y: 0, width: 100, height: 100))
         XCTAssertEqual(result.x, 50, "input: 100 x 100 sq")

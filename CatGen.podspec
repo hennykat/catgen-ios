@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
 
   # ―――  Spec Metadata  ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   s.name         = "CatGen"
-  s.version      = "0.0.1"
+  s.version      = "1.0.1"
   s.summary      = "cocoa touch framework to animate-draw a cat"
   s.description  = <<-DESC
   framework to animate-draw a cat view
@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   s.author             = { "Hennessy" => "hennykdev@gmail.com" }
 
   # ――― Platform Specifics ――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
-  s.platform     = :ios, "9.0"
+  s.platform     = :ios, "11.0"
 
   # ――― Source Location ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   s.source       = { :path => '.' }
